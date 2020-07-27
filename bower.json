@@ -1,0 +1,9 @@
+{
+  "name": "random_numberbower",
+  "dependencies": {
+    "angular": "latest",
+    "angular-resource": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest"
+  }
+}
