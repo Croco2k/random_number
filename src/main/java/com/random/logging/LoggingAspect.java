@@ -21,7 +21,7 @@ public class LoggingAspect {
             result = proceedingJoinPoint.proceed();
         } catch (Throwable throwable) {
             logger.error("can't executed " + proceedingJoinPoint.getSignature().getName());
-            return null;
+            return throwable;
         }
         long end = System.currentTimeMillis();
         logger.info("executed request for: " + proceedingJoinPoint.getSignature().toShortString() +

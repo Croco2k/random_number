@@ -3,12 +3,12 @@ package com.random.dbo;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity//Чтобы спринг понял, что мы хотим использовать этот класс как сущность
+@Entity
 @Table(name = "random")
 public class RandomNumber {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//Генерация сквозных айди
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nickname;
     private Date createDate;

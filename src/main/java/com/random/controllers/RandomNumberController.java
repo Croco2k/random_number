@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController//общение с вью(json)
-@RequestMapping("/random")//обращение к этому контроллеру
+@RestController
+@RequestMapping("/random")
 public class RandomNumberController {
 
     private RandomNumberService randomNumberService;

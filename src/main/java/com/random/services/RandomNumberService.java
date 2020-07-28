@@ -9,23 +9,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service//Чтобы спринг создал bean
+@Service
 public class RandomNumberService {
 
     private final RandomNumberRepository randomNumberRepository;
 
-    //@Qualifier() - для того, чтобы можно было заинджектить определенный bean
-    //@Autowired присутствует в неявном виде
     public RandomNumberService(@Qualifier("randomNumberRepository") RandomNumberRepository randomNumberRepository) {
         this.randomNumberRepository = randomNumberRepository;
     }
 
     public List<RandomNumber> getAll() {
-        return randomNumberRepository.findAll()
-                .stream()
-                .sorted((o1, o2) -> (int) (o2.getCreateDate().getTime() - o1.getCreateDate().getTime()))
-                .limit(5)
-                .collect(Collectors.toList());
+        return randomNumberRepository.findAllByOrderByCreateDateDesc();
+//                .stream()
+//                .sorted((o1, o2) -> (int) (o2.getCreateDate().getTime() - o1.getCreateDate().getTime()))
+//                .limit(5)
+//                .collect(Collectors.toList());
     }
 
     public RandomNumber addRandomNumber(RandomNumber randomNumber) {
